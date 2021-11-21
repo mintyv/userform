@@ -1,0 +1,97 @@
+body {
+  background:
+  linear-gradient(to
+  right, #3f5efb, #fc466b);
+}
+
+#board {
+  position: absolute;
+  left: 700px;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+.square {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid;
+
+}
+
+#canvas {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  
+}
+
+.player {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+
+.popup {
+  background: rgb(140, 221, 171);
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  top: 200px;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container-turn {
+  position: fixed;
+  top: 200px;
+  left: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+p {
+  font-size: 1.5rem;
+}
+ 
+board, td {
+  transform: scaleY(-1);
+}
+
+board {
+  display: flex;
+  justify-content: center;
+} 
+
+.img {
+  width: 100px;
+}
+
+.item {
+  padding: 18px;
+  font-weight: bold;
+  border: 1px solid black;
+  flex: 1;
+  width: 20px;
+}
+
+.row-direction:nth-of-type(even) {
+  display: flex;
+  direction: rtl;
+}
+
+.row-direction:nth-of-type(odd) {
+  display: flex;
+  direction: ltr;
+}
