@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON homework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <style>
+        th{ 
+            color:#fff;
+                }
+    </style>
+    
+    
+    <table class="table table-striped">
+        <tr  class="bg-info">
+            <th>Id:</th>
+            <th>Text:</th>
+            <th>Created:</th>
+            <th>Tags:</th>
+            <th>Completed:</th>
+        </tr>
+    
+        <tbody id="myTable">
+            
+        </tbody>
+    </table>
+
+
+ <script>
+        var myArray = [
+            {'id':'1', 'text':'Learn about Web Technology', 'created_at':'Mon Apr 26 06:01:55 +0000 2020', 'tags':'Web Development, Web Components', 'is_complete': 'true'},
+            {'id':'2', 'text':'Watch Pluralsight course on Docker', 'created_at':'Tue Mar 02 07:01:55 +0000 2020', 'tags':'Devops, Docker', 'is_complete': 'true'},
+            {'id':'3', 'text':'Complete presentation prep for Aurelia presentation', 'created_at':'Wed Mar 05 10:01:55 +0000 2020', 'tags':'Presentation, Aureia', 'is_complete': 'false'},
+            {'id':'4', 'text':'Instrument creation of development environment with Puppet', 'created_at':'Fri June 30 13:00:00 +0000 2020', 'tags':'Devops, Puppet', 'is_complete': 'true'},
+            {'id':'5', 'text':'Transition code base to ES6', 'created_at':'Mon Aug 01 10:00:00 +0000 2020', 'tags':'ES6, Web Development', 'is_complete': 'false'},
+            
+        ]
+        
+        buildTable(myArray)
+    
+    
+    
+        function buildTable(data){
+            var table = document.getElementById('myTable')
+    
+            for (var i = 0; i < data.length; i++){
+                var row = `<tr>
+                                <td>${data[i].id}</td>
+                                <td>${data[i].text}</td>
+                                <td>${data[i].created_at}</td>
+                                <td>${data[i].tags}</td>
+                                <td>${data[i].is_complete}</td>
+                          </tr>`
+                table.innerHTML += row
+    
+    
+            }
+        }
+    
+    </script>
+  </body>
+</html>

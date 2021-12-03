@@ -1,0 +1,100 @@
+<!DOCTYPE HTML> 
+<html> 
+ 
+<head>
+    <title>
+        JSON/Html
+    </title>
+     
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+ 
+<body style = "text-align:center;" id = "body"> 
+     
+    <h1 style = "color:green;" > 
+        Mina's JSON
+    </h1>
+     
+    <p id = "GFG_UP" style =
+        "font-size: 15px; font-weight: bold;">
+    </p>
+ 
+     
+    <button onclick = "constructTable('#table')">
+        click here
+    </button>
+     
+    <br><br>
+     
+    <table align = "center"
+            id="table" border="1">
+    </table>
+
+<script>
+        var el_up = document.getElementById("GFG_UP");
+         
+        var list = [
+        {'id':'1', 'text':'Learn about Web Technology', 'created_at':'Mon Apr 26 06:01:55 +0000 2020', 'tags':'Web Development, Web Components', 'is_complete': 'true'},
+            {'id':'2', 'text':'Watch Pluralsight course on Docker', 'created_at':'Tue Mar 02 07:01:55 +0000 2020', 'tags':'Devops, Docker', 'is_complete': 'true'},
+            {'id':'3', 'text':'Complete presentation prep for Aurelia presentation', 'created_at':'Wed Mar 05 10:01:55 +0000 2020', 'tags':'Presentation, Aureia', 'is_complete': 'false'},
+            {'id':'4', 'text':'Instrument creation of development environment with Puppet', 'created_at':'Fri June 30 13:00:00 +0000 2020', 'tags':'Devops, Puppet', 'is_complete': 'true'},
+            {'id':'5', 'text':'Transition code base to ES6', 'created_at':'Mon Aug 01 10:00:00 +0000 2020', 'tags':'ES6, Web Development', 'is_complete': 'false'},
+        ];
+         
+        el_up.innerHTML = "Click on the button to create "
+                +   "the table from the JSON data.<br><br>"
+                + JSON.stringify(list[0]) + "<br>"
+                + JSON.stringify(list[1]) + "<br>"
+                + JSON.stringify(list[2]) + "<br>"
+                + JSON.stringify(list[3]) + "<br>"
+                + JSON.stringify(list[4]);  
+             
+        function constructTable(selector) {
+             
+          
+            var cols = Headers(list, selector); 
+  
+            for (var i = 0; i < list.length; i++) {
+                var row = $('<tr/>');  
+                for (var colIndex = 0; colIndex < cols.length; colIndex++)
+                {
+                    var val = list[i][cols[colIndex]];
+                     
+                   
+                    if (val == null) val = ""; 
+                        row.append($('<td/>').html(val));
+                }
+                 
+              
+                $(selector).append(row);
+            }
+        }
+         
+        function Headers(list, selector) {
+            var columns = [];
+            var header = $('<tr/>');
+             
+            for (var i = 0; i < list.length; i++) {
+                var row = list[i];
+                 
+                for (var k in row) {
+                    if ($.inArray(k, columns) == -1) {
+                        columns.push(k);
+                       
+                        header.append($('<th/>').html(k));
+                    }
+                }
+            }
+             
+            
+            $(selector).append(header);
+                return columns;
+        }      
+    </script>
+
+
+</body>
+   
+</html>
