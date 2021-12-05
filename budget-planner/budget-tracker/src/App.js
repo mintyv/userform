@@ -1,13 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import './Style.css';
 import { AppProvider } from './context/AppContext';
 import Budget from './components/Budget';
 import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 import RemainingBudget from './components/Remaining';
-// import Style from './components/Style';
+
 
 function App() {
 	return (
@@ -15,13 +16,13 @@ function App() {
 			<div className='container'>
 				<h1 className='mt-3'>Mina's Budget Planner</h1>
 				<div className='row mt-3'>
-					<div className='col-sm'>
+					<div className='col-sm-4'>
 						<Budget />
 					</div>
-					<div className='col-sm'>
+					<div className='col-sm-4'>
 						<RemainingBudget />
 					</div>
-					<div className='col-sm'>
+					<div className='col-sm-4'>
 						<ExpenseTotal />
 					</div>
 				</div>

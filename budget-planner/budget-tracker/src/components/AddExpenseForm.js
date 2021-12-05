@@ -51,9 +51,9 @@ const AddExpenseForm = (props) => {
 					/>
 				</div>
 			</div>
-			<div class='row mt-3'>
+			<div class='row mt-2'>
 				<div class='col-sm'>
-					<button type='submit' class='btn btn-primary'>
+					<button btnType='submit' class='btn btn-primary'>
 						Save
 					</button>
 				</div>

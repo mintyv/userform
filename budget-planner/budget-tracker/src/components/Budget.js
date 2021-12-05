@@ -19,8 +19,11 @@ const Budget = () => {
 		setIsEditing(false);
 	};
 
+	
+;
+
 	return (
-		<div class='alert alert-secondary p-4 d-flex align-items-center justify-content-between'>
+		<div alertType='alert alert-secondary'>
 			{isEditing ? (
 				<EditBudget handleSaveClick={handleSaveClick} budget={budget} />
 			) : (
