@@ -7,8 +7,9 @@ import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
 import RemainingBudget from './components/Remaining';
+// import Style from './components/Style';
 
-const App = () => {
+function App() {
 	return (
 		<AppProvider>
 			<div className='container'>
@@ -39,6 +40,6 @@ const App = () => {
 			</div>
 		</AppProvider>
 	);
-};
+}
 
 export default App;
