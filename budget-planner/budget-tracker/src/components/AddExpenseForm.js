@@ -27,32 +27,32 @@ const AddExpenseForm = (props) => {
 
 	return (
 		<form onSubmit={onSubmit}>
-			<div class='row'>
-				<div class='col-sm col-lg-4'>
+			<div className='row'>
+				<div className='col-sm col-lg-4'>
 					<label for='name'>Name</label>
 					<input
 						required='required'
 						type='text'
-						class='form-control'
+						className='form-control'
 						id='name'
 						value={name}
 						onChange={(event) => setName(event.target.value)}
 					/>
 				</div>
-				<div class='col-sm col-lg-4'>
+				<div className='col-sm col-lg-4'>
 					<label for='cost'>Cost</label>
 					<input
 						required='required'
 						type='number'
-						class='form-control'
+						className='form-control'
 						id='cost'
 						value={cost}
 						onChange={(event) => setCost(event.target.value)}
 					/>
 				</div>
 			</div>
-			<div class='row mt-2'>
-				<div class='col-sm'>
+			<div className='row mt-2'>
+				<div className='col-sm'>
 					<button btnType='submit' class='btn btn-primary'>
 						Save
 					</button>
