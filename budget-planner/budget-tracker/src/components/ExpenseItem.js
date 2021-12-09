@@ -11,19 +11,21 @@ const ExpenseItem = (props) => {
 			payload: props.id,
 		});
 	};
+	
 
 	return (
-		<div class="row">
-		<div class='list-group-item d-flex justify-content-between align-items-center'>
-			{props.name}
-			
-			<span className='badge badge-primary' type='badge-pill mr-3'>
+		<ul class="list-group">
+		<li className='list-group-item d-flex justify-content-between align-items-center'>
+		{props.name}
+		
+			<div className='badge badge-primary badge-pill mr-3'>
 				${props.cost}
-			 
-				<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></span>
+				</div>
+				
+			<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
 			
-			</div>
-		</div>
+	</li>
+	</ul>
 	);
 };
 
