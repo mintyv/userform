@@ -1,42 +1,39 @@
-import React, { Component } from "react";
+import React, {Component } from 'react';
 
 
-const regExp = RegExp(
-    /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-)
+const regExp = RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/);
 
-const formValid = ({isError, ...rest})
+const formValid = ({isError, ...rest}) =>{
 let isValid = false;
-
-object.values(isError).forEach(val => {
-    if(val.length > 0){
-        isValid = false
+let flag = true;
+Object.values(isError).forEach(val => {
+    if(val.length === 0 && flag){
+        isValid = true;
     }
     else{
-        isValid = true
+        isValid = false;
+        flag = false;
     } 
 });
-
-object.values(rest).forEach(val => {
-    if(val === null){
-        isValid = false
-    }
+if(flag){
+if(Object.values(rest).includes('')) {
+    isValid = false
+}
     else{
-        isValid = true
+        isValid = true;
     }
-});
+}
 return isValid;
-}; 
+};
 
 
-export default class UserForm extends Component {
+class UserForm extends Component {
     constructor(props){
         super(props)
         this.state = {
             name:'',
             email:'',
             password:'',
-            
             isError:{
                 name:'',
                 email:'',
@@ -45,7 +42,7 @@ export default class UserForm extends Component {
         }
     }
     
-    
+
 onSubmit = e =>{
     e.preventDefault();
     if(formValid(this.state)){
@@ -57,44 +54,43 @@ onSubmit = e =>{
     }
 };
 
-formValChange = e=>{
+formValChange = e => {
     e.preventDefault();
-    const fname, value } = e.target;
+    const {name, value } = e.target;
 
-    let isError = {...this.state.isError};
+    let isError = { ...this.state.isError };
 
-    switch(name){
+    switch(name) {
         case "name":
-            isError.name = value.length <4? "name should be 4 characters":"";
+            isError.name = value.length < 4 ? "Name should be 4 characters" : "";
             break; 
 
         case "email":
-            isError.name = reg.Exp.test(value) ? "" :"Email address is invalid";
+            isError.email = regExp.test(value) ? "" : "Email address is invalid";
             break;    
 
         case "password":
-         isError.password = value.length < 6 ? "Password should be 6 characters":"";
+         isError.password = value.length < 6 ? "Password should be 6 characters" : "";
         break;     
         default:
             break;
     }
     this.setState({
         isError,
-        [name] :value
+        [name]: value
     })
-}
+};
 
 
 
     render() {
 
-        const {isError} = this.state;
+        const { isError } = this.state;
+
+        
         return (
 
-
-
-            
-                <form onSubmit ={this.onSubmit}>
+                <form onSubmit ={this.onSubmit} noValidate>
                     <div className="form-group">
                         <label>Name</label>
                         <input type ="text" 
@@ -103,38 +99,42 @@ formValChange = e=>{
                         onChange={this.formValChange}
                         />
                         {isError.name.length > 0 && (
-                            <span className = "invalid-feedback">{isError.name}</span>
+                            <span className="invalid-feedback">{isError.name}</span>
                         )}
                         </div>
+
+
                         <div className="form-group">
                             <label>Email</label>
                             <input type = "email" 
-                            className = {isError.name.length > 0 ? "is-invalid form-control" : "form-control"}
+                            className = {isError.email.length > 0 ? "is-invalid form-control" : "form-control"}
                             name = "email"
                             onChange={this.formValChange}
                             />
-                              {isError.name.length > 0 && (
+                              {isError.email.length > 0 && (
                             <span className = "invalid-feedback">{isError.email}</span>
-                            
+                              )}
                             </div>
+
+
                             <div className = "form-group">
                                 <label>Password</label>
                                 <input type = "password" 
-                                className = {isError.name.length > 0 ? "is-invalid form-control" : "form-control"}
+                                className = {isError.password.length > 0 ? "is-invalid form-control" : "form-control"}
                                 name = "password"
                                 onChange={this.formValChange}
                                 />
-                                  {isError.name.length > 0 && (
-                            <span className = "invalid-feedback">{isError.password}</span>
-
+                                  {isError.password.length > 0 && (
+                            <span className ="invalid-feedback">{isError.password}</span>
+                                  )}
                             </div>
                             <br/>
                             <button type = "submit" className = "btn btn-block btn-danger">Create User</button>
                            
                 </form>
-            </div>
+           
         );
     }
-
+}
 
 export default UserForm;
