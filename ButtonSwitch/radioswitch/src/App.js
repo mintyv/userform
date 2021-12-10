@@ -1,33 +1,39 @@
-import React, {component} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-Class App extends Component{
+class App extends Component{
   state = {
-      value : "home"
-
+      value : "Home"
+      
   };
 
 onChange = e =>{
-  this. setState({value : e.target.value})
+  this.setState({value : e.target.value})
 }
 
   render(){
     const {value} = this.state;
+
     return (
     <form>
         <h1>Current Selection : {value}</h1>
+
         <label>
           Home
           <input type="radio"
-          value="home"
-          onChange={(this,onChange)}/>
+          value="Home"
+          checked={value === "Home"}
+          onChange={this.onChange}/>
 </label>
+
 
 <label>
           About Us
           <input type="radio"
-          value="aboutus"
-          onChange={(this,onChange)}/>
+          value="About us"
+          checked={value === "Aboutus"}
+          onChange={this.onChange}/>
+          
 </label>
 
 
