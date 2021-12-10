@@ -24,7 +24,7 @@ function App() {
 						<ExpenseTotal />
 					</div>
 				</div>
-				<h3 className='mt-3'>Expenses</h3>
+				<h3 className='mt-9'>Expenses</h3>
 				<div className='row '>
 					<div className='col-sm'>
 						<ExpenseList />

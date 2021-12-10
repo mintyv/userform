@@ -20,10 +20,10 @@ const ExpenseItem = (props) => {
 		
 			<div className='badge badge-primary badge-pill mr-3'>
 				${props.cost}
-				</div>
 				
-			<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
 			
+			<TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete>
+			</div>
 	</li>
 	</ul>
 	);
