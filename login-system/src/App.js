@@ -1,12 +1,12 @@
-import {useState} from "react";
+import React from "react";
 import "./App.css";
-import '../node_modules/boostrap/dist/css/boostrap.min.css'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import UserForm from './components/UserForm';
 
 function App () {
 
   return (
-    <div class="App">
+    <div class="Center">
      <h1>Mina's React Login</h1>
 
 
