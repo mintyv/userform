@@ -1,45 +1,65 @@
 import React, {Component} from 'react';
 import './App.css';
+// import '../node_modules/bootstrap/dist.css.bootstrap.min.css'
+import {useSelector, useDispatch} from 'react-redux';
+import {increment} from './actions';
 
-class App extends Component{
-  state = {
-      value : "Home"
+
+function App() {
+  const counter = useSelector(state => state.counter);
+
+  const dispatch = useDispatch();
+
+  return (
+
+    <div class="center"> 
+    <h1>Counter : {counter}</h1><br/>
+    <button onClick={ () => dispatch(increment())}>+</button>
+  
+    </div>
+
+
+
+
+// class App extends Component{
+//   state = {
+//       value : "Home"
       
-  };
+//   };
 
-onChange = e =>{
-  this.setState({value : e.target.value})
-}
+// onChange = e =>{
+//   this.setState({value : e.target.value})
+// }
 
-  render(){
-    const {value} = this.state;
+//   render(){
+//     const {value} = this.state;
 
-    return (
-    <form>
-        <h1>Current Selection : {value}</h1>
+//     return (
+//     <form>
+//         <h1>Current Selection : {value}</h1>
 
-        <label>
-          Home
-          <input type="radio"
-          value="Home"
-          checked={value === "Home"}
-          onChange={this.onChange}/>
-</label>
+//         <label>
+//           Home
+//           <input type="radio"
+//           value="Home"
+//           checked={value === "Home"}
+//           onChange={this.onChange}/>
+// </label>
 
 
-<label>
-          About Us
-          <input type="radio"
-          value="About us"
-          checked={value === "Aboutus"}
-          onChange={this.onChange}/>
+// <label>
+//           About Us
+//           <input type="radio"
+//           value="About us"
+//           checked={value === "Aboutus"}
+//           onChange={this.onChange}/>
           
-</label>
+// </label>
 
 
-    </form>
-  )
-}
-}
-
+//     </form>
+//   )
+// }
+// }
+  )}
 export default App;
