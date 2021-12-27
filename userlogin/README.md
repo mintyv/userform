@@ -1,4 +1,4 @@
-![](images\Capture.PNG)
+![](Capture.PNG)
 
 
 # Getting Started with Create React App
